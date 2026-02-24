@@ -74,7 +74,7 @@ POST risk: curl -X POST http://localhost:8080/risk-score
 
 EVIDENCIA DEL PROYECTO 
 
-Validación de contraseñas 
+Validación de contraseñas;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/validaci%C3%B3n%20de%20contrase%C3%B1as.jpeg;
 
 API FUNCIONANDO LOCALMENTE;
@@ -83,19 +83,19 @@ https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20fu
 CONSTRUCCIÓN DE IMAGEN EN DOCKER;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker%202.jpeg;
 
-CONTENEDOR EJECUTANDOSE
+CONTENEDOR EJECUTANDOSE;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker.jpeg;
 
-PRUEBA CURL EXITOSA
+PRUEBA CURL EXITOSA;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Pruebas%20Curl%201.jpeg;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Pruebas%20Curl%202.jpeg;
 
-API DESPLEGADA EN CLOUD 
+API DESPLEGADA EN CLOUD; 
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20en%20google%20cloud%20.jpg;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20FUNCIONANDO%20.jpeg;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/LOGS%20API%20GCP.jpg;
 
-ENDPINT ACCESIBLE PUBLICAMENTE
+ENDPINT ACCESIBLE PUBLICAMENTE;
 
 
 
