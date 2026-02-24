@@ -84,6 +84,9 @@ CONTENEDOR EJECUTANDOSE
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker.jpeg
 
 PRUEBA CURL EXITOSA
+https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Pruebas%20Curl%201.jpeg
+https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Pruebas%20Curl%202.jpeg
+
 API DESPLEGADA EN CLOUD 
 ENDPINT ACCESIBLE PUBLICAMENTE
 
