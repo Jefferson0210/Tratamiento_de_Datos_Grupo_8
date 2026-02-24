@@ -72,3 +72,6 @@ POST risk: curl -X POST http://localhost:8080/risk-score
 
  Prueba de funcionamiento API CLOUD 
  https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20en%20google%20cloud%20.jpg
+
+ Logs funcionamiento API y notificación de errores 
+ https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/LOGS%20API%20GCP.jpg
