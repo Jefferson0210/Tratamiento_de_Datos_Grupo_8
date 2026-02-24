@@ -78,7 +78,7 @@ API FUNCIONANDO LOCALMENTE;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20funcionando%20localmente.jpeg
 
 CONSTRUCCIÓN DE IMAGEN EN DOCKER;
-
+https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker.jpeg
 
 CONTENEDOR EJECUTANDOSE
 PRUEBA CURL EXITOSA
