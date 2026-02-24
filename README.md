@@ -79,6 +79,7 @@ https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20fu
 
 CONSTRUCCIÓN DE IMAGEN EN DOCKER;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker.jpeg
+https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker%202.jpeg
 
 CONTENEDOR EJECUTANDOSE
 PRUEBA CURL EXITOSA
