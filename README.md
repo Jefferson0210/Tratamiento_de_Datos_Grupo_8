@@ -1,4 +1,10 @@
-Cyber-API — API de Ciberseguridad Defensiva
+Proyecto Tratamiento de Datos
+Grupo: 8
+Integrantes:
+Byron Velasco
+Jefferson Ramirez
+Edison Cofre
+Descripción: Cyber-API — API de Ciberseguridad Defensiva
 Descripción
 
 Microservicio REST defensivo en FastAPI. Permite registrar y consultar alertas de seguridad en memoria y calcular un score de riesgo. Incluye validación con Pydantic, autenticación por API Key y documentación automática en /docs.
