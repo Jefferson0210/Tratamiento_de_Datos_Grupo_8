@@ -2,12 +2,12 @@ Proyecto Tratamiento de Datos;
 
 Grupo: 8; 
 
-Integrantes:
-Byron Velasco
-Jefferson Ramirez
-Edison Cofre
+Integrantes:;
+Byron Velasco;
+Jefferson Ramirez;
+Edison Cofre;
+
 Descripción: Cyber-API — API de Ciberseguridad Defensiva
-Descripción
 
 Microservicio REST defensivo en FastAPI. Permite registrar y consultar alertas de seguridad en memoria y calcular un score de riesgo. Incluye validación con Pydantic, autenticación por API Key y documentación automática en /docs.
 
@@ -72,10 +72,19 @@ Error sin API key: curl -X POST http://localhost:8080/alerts
 POST risk: curl -X POST http://localhost:8080/risk-score
  -H "Content-Type: application/json" -H "X-API-Key: tu_clave" -d '{...}'
 
-Imagen API funcionando y enviando parametros 
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20FUNCIONANDO%20.jpeg
+EVIDENCIA DEL PROYECTO 
+
+API FUNCIONANDO LOCALMENTE
+CONSTRUCCIÓN DE IMAGEN EN DOCKER 
+CONTENEDOR EJECUTANDOSE
+PRUEBA CURL EXITOSA
+API DESPLEGADA EN CLOUD 
+ENDPINT ACCESIBLE PUBLICAMENTE
+
+
 
 Validación de contraseñas 
+https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/validaci%C3%B3n%20de%20contrase%C3%B1as.jpeg
 
  Prueba de funcionamiento API CLOUD 
  https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20en%20google%20cloud%20.jpg
