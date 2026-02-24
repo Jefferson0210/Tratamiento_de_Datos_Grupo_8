@@ -83,6 +83,7 @@ API FUNCIONANDO LOCALMENTE;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20funcionando%20localmente.jpeg;
 
 CONSTRUCCIÓN DE IMAGEN EN DOCKER;
+
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker%202.jpeg;
 
 CONTENEDOR EJECUTANDOSE;
@@ -92,15 +93,19 @@ https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker.j
 PRUEBA CURL EXITOSA;
 
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Pruebas%20Curl%201.jpeg;
+
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Pruebas%20Curl%202.jpeg;
 
 API DESPLEGADA EN CLOUD; 
 
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20en%20google%20cloud%20.jpg;
+
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20FUNCIONANDO%20.jpeg;
+
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/LOGS%20API%20GCP.jpg;
 
 ENDPINT ACCESIBLE PUBLICAMENTE;
+https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/endpoint%20publico.jpeg
 
 
 
