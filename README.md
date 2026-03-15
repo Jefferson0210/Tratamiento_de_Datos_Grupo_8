@@ -9,7 +9,18 @@ Edison Cofre;
 
 Descripción: Cyber-API — API de Ciberseguridad Defensiva
 
-Microservicio REST defensivo en FastAPI. Permite registrar y consultar alertas de seguridad en memoria y calcular un score de riesgo. Incluye validación con Pydantic, autenticación por API Key y documentación automática en /docs.
+## SE MEJORA LA DESCRIPCIÓN DEL ARCHIVO README.md en base a la observación de la semana 1 
+
+La aplicación está construida utilizando **FastAPI** y **Pydantic**, tecnologías modernas de desarrollo de APIs en Python que permiten crear servicios web de alto rendimiento, seguros y fácilmente documentados.
+
+La API está diseñada para centralizar funcionalidades orientadas al análisis y gestión de eventos de seguridad, proporcionando endpoints especializados para monitoreo del estado del sistema (*health*), gestión de alertas de seguridad (*alerts*) y cálculo de niveles de riesgo (*risk_score*). Estos módulos permiten estructurar la lógica de negocio de manera modular y escalable.
+
+El servicio incorpora mecanismos de observabilidad y trazabilidad mediante un middleware de registro que genera identificadores únicos por solicitud (*request_id*), registra el método HTTP, ruta, código de estado, tiempo de respuesta e IP de origen. Esta funcionalidad facilita auditorías, monitoreo operativo y análisis de incidentes de seguridad.
+
+Además, la API implementa un manejador global de excepciones que captura errores inesperados y devuelve respuestas controladas al cliente, evitando la exposición de información sensible del servidor. También se incluyen eventos de ciclo de vida de la aplicación para registrar el inicio y cierre del servicio.
+
+Finalmente, la plataforma expone documentación interactiva automática mediante Swagger y ReDoc, permitiendo a desarrolladores y analistas de seguridad explorar y consumir los endpoints de forma sencilla y eficiente.
+
 
 Estructura
 
