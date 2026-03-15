@@ -118,8 +118,28 @@ https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/LOGS%20A
 ENDPINT ACCESIBLE PUBLICAMENTE;
 https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/endpoint%20publico.jpeg
 
+## Respuesta a preguntas planteadas en la Semana 1 
+# 1. Como se maneja normalmente en la industria el almacenamiento de API keys de los usuarios?
+En la industria, el almacenamiento de API Keys se maneja siguiendo principios similares al manejo de contraseñas: nunca se almacenan en texto plano y se aplican controles de seguridad para evitar filtraciones. A continuación se describen las prácticas más comunes en entornos profesionales
+1. Almacenamiento usando hash
+2. Separar identificador + secreto
+3. Uso de Secret Managers
+4. Rotación y expiración de claves
+5. Restricciones de seguridad:
+Las plataformas suelen aplicar controles adicionales:
+Rate limiting
+IP allowlist
+Scopes o permisos por API
+detección de abuso
 
+# Reglas dinámicas basadas en datos
 
+Las recomendaciones pueden generarse mediante motores de reglas que analicen variables del sistema en tiempo real.
+Ejemplo:
+Nivel de riesgo detectado
+Número de alertas recientes
+Historial de incidentes
+Tipo de activo o sistema afectado
 
 
 
