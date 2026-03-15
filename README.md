@@ -136,10 +136,10 @@ detección de abuso
 
 Las recomendaciones pueden generarse mediante motores de reglas que analicen variables del sistema en tiempo real.
 Ejemplo:
-Nivel de riesgo detectado
-Número de alertas recientes
-Historial de incidentes
-Tipo de activo o sistema afectado
+1. Nivel de riesgo detectado
+2. Número de alertas recientes
+3. Historial de incidentes
+4. Tipo de activo o sistema afectado
 
 
 
