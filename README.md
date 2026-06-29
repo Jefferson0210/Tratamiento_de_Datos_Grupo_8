@@ -135,12 +135,7 @@ El proyecto aplica criterio de seguridad desde el diseño. Algunas prácticas ya
 
 ---
 
-## Equipo
 
-Proyecto **Tratamiento de Datos — Grupo 8**
-Byron Velasco · Jefferson Ramírez · Edison Cofre
-
----
 
 ## Objetivo
 
