@@ -1,146 +1,149 @@
-Proyecto Tratamiento de Datos;
+# Cyber-API
 
-Grupo: 8; 
+![Python](https://img.shields.io/badge/Python-3.11-3776AB)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688)
+![Docker](https://img.shields.io/badge/Docker-2496ED)
+![Google Cloud](https://img.shields.io/badge/Google%20Cloud-deployed-4285F4)
 
-Integrantes:;
-Byron Velasco;
-Jefferson Ramirez;
-Edison Cofre;
+**API de ciberseguridad defensiva para centralizar el análisis y la gestión de eventos de seguridad.**
 
-Descripción: Cyber-API — API de Ciberseguridad Defensiva
+Cuando algo raro pasa en un sistema, la pregunta no es solo *"¿qué pasó?"*, sino *"¿qué tan grave es y qué hago ahora?"*. Cyber-API responde justo eso: recibe alertas de seguridad, calcula un nivel de riesgo y deja todo registrado y auditable, a través de una API rápida, documentada y lista para producción. Construida con FastAPI y Pydantic, contenerizada con Docker y desplegada en Google Cloud.
 
-## SE MEJORA LA DESCRIPCIÓN DEL ARCHIVO README.md en base a la observación de la semana 1 
+---
 
-La aplicación está construida utilizando **FastAPI** y **Pydantic**, tecnologías modernas de desarrollo de APIs en Python que permiten crear servicios web de alto rendimiento, seguros y fácilmente documentados.
+## Qué hace
 
-La API está diseñada para centralizar funcionalidades orientadas al análisis y gestión de eventos de seguridad, proporcionando endpoints especializados para monitoreo del estado del sistema (*health*), gestión de alertas de seguridad (*alerts*) y cálculo de niveles de riesgo (*risk_score*). Estos módulos permiten estructurar la lógica de negocio de manera modular y escalable.
+Cyber-API centraliza la lógica de seguridad en endpoints especializados y modulares:
 
-El servicio incorpora mecanismos de observabilidad y trazabilidad mediante un middleware de registro que genera identificadores únicos por solicitud (*request_id*), registra el método HTTP, ruta, código de estado, tiempo de respuesta e IP de origen. Esta funcionalidad facilita auditorías, monitoreo operativo y análisis de incidentes de seguridad.
+- **Monitoreo del sistema** (`health`) — comprobar al instante que el servicio está vivo y respondiendo.
+- **Gestión de alertas** (`alerts`) — registrar y consultar eventos de seguridad.
+- **Cálculo de riesgo** (`risk-score`) — convertir los datos de un evento en un nivel de riesgo accionable.
 
-Además, la API implementa un manejador global de excepciones que captura errores inesperados y devuelve respuestas controladas al cliente, evitando la exposición de información sensible del servidor. También se incluyen eventos de ciclo de vida de la aplicación para registrar el inicio y cierre del servicio.
+Cada módulo está separado para que la lógica de negocio sea clara, escalable y fácil de mantener.
 
-Finalmente, la plataforma expone documentación interactiva automática mediante Swagger y ReDoc, permitiendo a desarrolladores y analistas de seguridad explorar y consumir los endpoints de forma sencilla y eficiente.
+---
 
+## Lo que la hace seria
 
-Estructura
+- **Trazabilidad por solicitud** — un middleware genera un `request_id` único por petición y registra método HTTP, ruta, código de estado, tiempo de respuesta e IP de origen. Esto convierte cada llamada en algo auditable: clave para investigar incidentes.
+- **Manejo global de errores** — un manejador central captura los errores inesperados y devuelve respuestas controladas, sin filtrar información interna del servidor al cliente.
+- **Eventos de ciclo de vida** — la aplicación registra su arranque y su cierre, útil para monitoreo operativo.
+- **Autenticación por API Key** — los endpoints sensibles exigen una cabecera `X-API-Key`; lo público y lo protegido están claramente separados.
+- **Documentación automática** — Swagger y ReDoc listos para que cualquier desarrollador o analista explore y pruebe los endpoints.
 
+---
+
+## Stack
+
+FastAPI · Pydantic · Python · Docker · Google Cloud
+
+---
+
+## Endpoints
+
+| Método | Ruta | Acceso |
+|--------|------|--------|
+| `GET` | `/health` | Público |
+| `POST` | `/alerts` | Protegido (`X-API-Key`) |
+| `GET` | `/alerts` | Protegido (`X-API-Key`) |
+| `POST` | `/risk-score` | Protegido (`X-API-Key`) |
+| `GET` | `/docs`, `/redoc` | Público |
+
+---
+
+## Cómo usarla
+
+### En local
+
+```bash
+# 1. Instalar dependencias
+pip install -r requirements.txt
+
+# 2. Configurar la clave (variable de entorno)
+export API_KEY="tu_clave"          # en Windows: set API_KEY=tu_clave
+
+# 3. Ejecutar
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8080
+```
+
+Documentación interactiva en `http://localhost:8080/docs`.
+
+### Con Docker
+
+```bash
+# Construir la imagen
+docker build -t cyber-api:v2 .
+
+# Ejecutar el contenedor
+docker run -p 8080:8080 -e API_KEY="tu_clave" cyber-api:v2
+```
+
+### Probar con curl
+
+```bash
+# Health (público)
+curl http://localhost:8080/health
+
+# Crear alerta (protegido)
+curl -X POST http://localhost:8080/alerts \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: tu_clave" \
+  -d '{ ... }'
+
+# Calcular riesgo (protegido)
+curl -X POST http://localhost:8080/risk-score \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: tu_clave" \
+  -d '{ ... }'
+```
+
+Si llamas a un endpoint protegido sin la cabecera `X-API-Key`, la API responde con un error controlado (acceso denegado).
+
+---
+
+## Estructura del proyecto
+
+```
 cyber-api/
+├── app/
+│   ├── main.py                 # App, middleware de logging, manejo de errores
+│   ├── models/schemas.py       # Modelos Pydantic (validación de entradas/salidas)
+│   ├── routes/
+│   │   ├── health.py           # Estado del servicio
+│   │   ├── alerts.py           # Gestión de alertas
+│   │   └── risk_score.py       # Cálculo de nivel de riesgo
+│   └── security/auth.py        # Autenticación por API Key
+├── Dockerfile
+├── requirements.txt
+└── README.md
+```
 
-app/main.py
+---
 
-app/models/schemas.py
+## Buenas prácticas y roadmap
 
-app/routes/health.py
+El proyecto aplica criterio de seguridad desde el diseño. Algunas prácticas ya están implementadas y otras marcan la dirección a futuro:
 
-app/routes/alerts.py
+**Almacenamiento seguro de API Keys.** Igual que con las contraseñas, las claves nunca deberían guardarse en texto plano. El enfoque profesional contempla:
+- Guardar solo el **hash** de la clave, no la clave en sí.
+- Separar **identificador + secreto**.
+- Usar **Secret Managers** en vez de hardcodear claves.
+- **Rotación y expiración** periódica de claves.
+- Controles extra: **rate limiting**, **IP allowlist**, **scopes** por API y **detección de abuso**.
 
-app/routes/risk_score.py
+**Reglas de riesgo dinámicas.** El cálculo de riesgo puede crecer hacia un motor de reglas que analice variables en tiempo real: nivel de riesgo detectado, número de alertas recientes, historial de incidentes y tipo de activo afectado.
 
-app/security/auth.py
+---
 
-Dockerfile
+## Equipo
 
-requirements.txt
+Proyecto **Tratamiento de Datos — Grupo 8**
+Byron Velasco · Jefferson Ramírez · Edison Cofre
 
-README.md
+---
 
-Endpoints
+## Objetivo
 
-GET /health (público)
-
-POST /alerts (protegido con X-API-Key)
-
-GET /alerts (protegido con X-API-Key)
-
-POST /risk-score (protegido con X-API-Key)
-
-GET /docs, /redoc (público)
-
-Uso local
-
-Instalar: pip install -r requirements.txt
-
-Configurar: API_KEY en variables de entorno
-
-Ejecutar: python -m uvicorn app.main:app --host 0.0.0.0 --port 8080
-
-Docker
-
-build: docker build -t cyber-api:v2 .
-
-run: docker run -p 8080:8080 -e API_KEY="tu_clave" cyber-api:v2
-
-Pruebas con curl
-
-GET: curl http://localhost:8080/health
-
-POST alertas: curl -X POST http://localhost:8080/alerts
- -H "Content-Type: application/json" -H "X-API-Key: tu_clave" -d '{...}'
-
-Error sin API key: curl -X POST http://localhost:8080/alerts
- -H "Content-Type: application/json" -d '{...}'
-
-POST risk: curl -X POST http://localhost:8080/risk-score
- -H "Content-Type: application/json" -H "X-API-Key: tu_clave" -d '{...}'
-
-EVIDENCIA DEL PROYECTO 
-
-Validación de contraseñas;
-
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/validaci%C3%B3n%20de%20contrase%C3%B1as.jpeg;
-
-API FUNCIONANDO LOCALMENTE;
-
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20funcionando%20localmente.jpeg;
-
-CONSTRUCCIÓN DE IMAGEN EN DOCKER;
-
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker%202.jpeg;
-
-CONTENEDOR EJECUTANDOSE;
-
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Docker.jpeg;
-
-PRUEBA CURL EXITOSA;
-
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Pruebas%20Curl%201.jpeg;
-
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/Pruebas%20Curl%202.jpeg;
-
-API DESPLEGADA EN CLOUD; 
-
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20en%20google%20cloud%20.jpg;
-
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/API%20FUNCIONANDO%20.jpeg;
-
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/LOGS%20API%20GCP.jpg;
-
-ENDPINT ACCESIBLE PUBLICAMENTE;
-https://github.com/Jefferson0210/Tratamiento_de_Datos_Grupo_8/blob/main/endpoint%20publico.jpeg
-
-## Respuesta a preguntas planteadas en la Semana 1 
-# 1. Como se maneja normalmente en la industria el almacenamiento de API keys de los usuarios?
-En la industria, el almacenamiento de API Keys se maneja siguiendo principios similares al manejo de contraseñas: nunca se almacenan en texto plano y se aplican controles de seguridad para evitar filtraciones. A continuación se describen las prácticas más comunes en entornos profesionales
-1. Almacenamiento usando hash
-2. Separar identificador + secreto
-3. Uso de Secret Managers
-4. Rotación y expiración de claves
-5. Restricciones de seguridad:
-Las plataformas suelen aplicar controles adicionales:
-Rate limiting
-IP allowlist
-Scopes o permisos por API
-detección de abuso
-
-# Reglas dinámicas basadas en datos
-
-Las recomendaciones pueden generarse mediante motores de reglas que analicen variables del sistema en tiempo real.
-Ejemplo:
-1. Nivel de riesgo detectado
-2. Número de alertas recientes
-3. Historial de incidentes
-4. Tipo de activo o sistema afectado
-
-
+Diseñar, construir y desplegar una API funcional aplicando buenas prácticas de desarrollo: versionamiento, pruebas, contenerización y despliegue (local, Docker y nube) con FastAPI.
 
  
